@@ -1,0 +1,63 @@
+﻿@model ProyectoF2.Models.Usuario
+@{
+    
+    Layout = null;
+}
+
+<h1>INGRESO</h1>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/styles.css">
+</head>
+
+
+
+<section class="vh-100">
+   
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <p class="text-center">SISTEMA DE BIBLIOTECA</p>
+                <form asp-controller="Acceso" asp-action="Login" method="post">
+                    <div class="d-flex flex-row align-items-center justify-content-center ">
+                        <p class="lead fw-normal mb-0 me-3">Ingresa con tu Cuenta</p>
+
+                    </div> <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example3">Correo</label>
+                        <input type="email" class="form-control" placeholder="Ingrese aqui su Correo Electronico" asp-for="Correo">
+
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="form3Example4">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Ingrese aqui su Contraseña" asp-for="Clave">
+
+                    </div>
+
+
+
+                    <div class="text-center  mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-inline: 2.5rem; padding-right: 2.5rem;">
+                            Iniciar Sesion
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

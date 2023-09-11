@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProyectoF2.Models.Prestamo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Nuevo Prestamo</a>
+</p>
+<form asp-controller="Prestamoes" asp-action="Index" class="form-inline">
+    <p>
+        Buscar: <input type="text" name="buscar" class="form-text" placeholder="Ingresa la identificacion del usuario" />
+        <input type="submit" value="Buscar" class="btn btn-sm btn-success">
+
+    </p>
+
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaConfirmacionDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLibroNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentificacionNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDevolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaConfirmacionDevolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLibroNavigation.IdLibro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentificacionNavigation.Identificacion)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdPrestamo">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.IdPrestamo">Detalle</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdPrestamo">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
